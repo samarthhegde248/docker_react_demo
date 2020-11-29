@@ -6,4 +6,4 @@ before_install:
  - docker build -t travisdemo/firstreact-docker -f Dockerfile.dev .
 
 script:
- - docker run travisdemo/firstreact-docker npm run test -- --coverage
+ - docker run travisdemo/firstreact-docker npm run test
