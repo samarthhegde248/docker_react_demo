@@ -1,8 +1,17 @@
-language: generic
-sudo: required
-services:
- - docker
-before_install:
- - docker build -t travisdemo/firstreact-docker -f Dockerfile.dev .
-script:
- - docker run -e CI=true travisdemo/firstreact-docker npm run test
+{
+  "language": "ruby",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "sudo": true,
+  "services": [
+    "docker"
+  ],
+  "before_install": [
+    "docker build -t travisdemo/firstreact-docker -f Dockerfile.dev ."
+  ],
+  "script": [
+    "docker run travisdemo/firstreact-docker npm run test -- --coverage"
+  ]
+}
